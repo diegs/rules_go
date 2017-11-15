@@ -180,7 +180,7 @@ def generate_toolchains():
       toolchain["link_flags"] += ["-s"]
       toolchain["cgo_link_flags"] += ["-shared", "-Wl,-all_load"]
     if toolchain["goos"] == os_linux.goos:
-      toolchain["cgo_link_flags"] += ["-Wl,-whole-archive"]
+      toolchain["cgo_link_flags"] += ["-Wl,-whole-archive", "-no-pie"]
 
   # Use the final dictionaries to actually generate all the toolchains
   for toolchain in toolchains:
